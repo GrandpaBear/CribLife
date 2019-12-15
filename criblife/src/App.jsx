@@ -4,12 +4,13 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { LandingPage } from "./components/landing-page/landing-page-index";
 import { Profile } from "./components/profile/profile-index";
 import { Main } from "./components/main/main-index";
+import { Listing } from "./components/listing/listingpage-index";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: "LandingPage", //default LandingPage
+      view: "listing", //default LandingPage
       login: true,
 
       //user info
@@ -30,7 +31,7 @@ class App extends React.Component {
       };
       if (view == null) {
         this.setState({
-          view: "LandingPage"
+          view: "listing"
         });
       } else {
         this.setState({
@@ -76,6 +77,11 @@ class App extends React.Component {
           {this.state.view == "main" && (
             <div>
               <Main />
+            </div>
+          )}
+          {this.state.view == "listing" && (
+            <div>
+              <Listing/>
             </div>
           )}
         </div>

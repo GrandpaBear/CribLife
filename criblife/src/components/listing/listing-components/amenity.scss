@@ -1,0 +1,29 @@
+.amenity {
+    display: inline-block;
+    margin-right: 40px;
+    max-width: 60px;
+}
+
+.amenity-icon {
+    background-color: #D7F0F3;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    height: 35px;
+    width: 35px;
+    vertical-align: middle;
+}
+
+.amenity-label {
+    font-family: avenir-medium;
+    text-align: center;
+    margin-top: 11px;
+    font-size: 14px;
+    color: #4D4D4D;
+}
