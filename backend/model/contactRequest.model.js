@@ -6,7 +6,7 @@ let contactRequestSchema = new Schema({
     type: String
   },
   members: {
-    type: Array //Holds members' username/email and boolean of whether they approved of place
+    type: Array //Holds members' username/fullname/email and boolean of whether they approved of place
   },
   contactInfoSent: {
     type: Boolean

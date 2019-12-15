@@ -23,11 +23,14 @@ let userSchema = new Schema({
   group: {
     type: String
   },
-  myListing: {
-    type: String
+  listingPosts: {
+    type: Array //array of listing ids
   },
-  currentCrib: {
-    type: String
+  contactRequestsReceived: {
+    type: Array //array of listing ids
+  },
+  contactRequestsSent: {
+    type: Array //array of listing ids
   },
   profilePicture: { data: Buffer, contentType: String }
 });

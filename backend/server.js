@@ -11,12 +11,17 @@ const server = "localhost:27017";
 const database = "criblife";
 
 const userRoutes = express.Router();
+const listingRoutes = express.Router();
 const profileRoutes = express.Router();
+const contactRequestRoutes = express.Router();
 const PORT = 4000;
 
 let UserAuth = require("./model/userAuth.model");
 let User = require("./model/user.model");
 let UserSession = require("./model/userSession.model");
+let Listing = require("./model/listing.model");
+let Room = require("./model/room.model");
+let ContactRequest = require("./model/contactRequest.model");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -42,16 +47,9 @@ app.listen(PORT, function() {
   console.log("Server is running on Port: " + PORT);
 });
 app.use("/user", userRoutes);
+app.use("/listing", listingRoutes);
 app.use("/profile", profileRoutes);
-
-//------------------------Image Encoder/Decoder------------------
-// function to encode file data to base64 encoded string
-// function base64_encode(file) {
-//   // read binary data
-//   var bitmap = fs.readFileSync(file);
-//   // convert binary data to base64 encoded string
-//   return new Buffer(bitmap).toString("base64");
-// }
+app.use("/contactRequest", contactRequestRoutes);
 
 //------------------------Register User------------------------
 userRoutes.route("/register").post(function(req, res) {
@@ -218,6 +216,121 @@ userRoutes.route("/login").post(function(req, res) {
   });
 });
 
+//------------------------ContactRequest Methods------------------------
+contactRequestRoutes.route("/create").post(function(req, res) {
+  let userSessionKey = {
+    username: "",
+    view: "",
+    sessionId: ""
+  };
+  UserSession.findOne({ username: req.body.username }).then(userSession => {
+    bcrypt
+      .compare(req.body.sessionId, userSession.sessionId)
+      .then(isMatch => {
+        //check if contact request members is greater or equal to minimum members required
+        if (isMatch) {
+          if (
+            req.body.minimumMembersForContactRequest <=
+            req.body.contactRequest.members.length
+          ) {
+            req.body.contactRequest.save().then(result => {
+              for (let i = 0; i < req.body.contactRequest.members.length; i++) {
+                User.findOne({
+                  username: req.body.contactRequest.members[i].username
+                }).then(user => {
+                  user.contactRequestsSent.push(result._id);
+                });
+              }
+            });
+          } else {
+            res.status(403).send("Select more roommates.");
+          }
+        } else {
+          res.status(400).json(userSessionKey);
+        }
+      })
+      .catch(err => {
+        res.status(400).json(userSessionKey);
+      });
+  });
+});
+
+contactRequestRoutes.route("/update").post(function(req, res) {
+  let userSessionKey = {
+    username: "",
+    view: "",
+    sessionId: ""
+  };
+  UserSession.findOne({ username: req.body.username }).then(userSession => {
+    bcrypt
+      .compare(req.body.sessionId, userSession.sessionId)
+      .then(isMatch => {
+        //check if contact request members is greater or equal to minimum members required
+        if (isMatch) {
+          ContactRequest.findOne({
+            _id: req.body.contactRequestId
+          }).then(result => {
+            for (let i = 0; i < result.members.length; i++) {
+              if (req.body.username == result.members[i].username) {
+                result.members[i].approvalResponse = true;
+                result.save();
+                for (let j = 0; j < result.members.length; j++) {
+                  if (result.members[i].approvalResponse == false) {
+                    res
+                      .status(200)
+                      .send("Contact Request updated successfully!");
+                    break;
+                  } else if (
+                    j == result.members.length - 1 &&
+                    result.members[i].approvalResponse == true
+                  ) {
+                    res
+                      .status(200)
+                      .send(
+                        "Contact Request has been completed and sent successfully!"
+                      );
+                  }
+                }
+                break;
+              }
+            }
+          });
+        } else {
+          res.status(400).json(userSessionKey);
+        }
+      })
+      .catch(err => {
+        res.status(400).json(userSessionKey);
+      });
+  });
+});
+
+contactRequestRoutes.route("/delete").post(function(req, res) {
+  let userSessionKey = {
+    username: "",
+    view: "",
+    sessionId: ""
+  };
+  UserSession.findOne({ username: req.body.username }).then(userSession => {
+    bcrypt
+      .compare(req.body.sessionId, userSession.sessionId)
+      .then(isMatch => {
+        if (isMatch) {
+          ContactRequest.deleteOne({
+            _id: req.body.contactRequestId
+          }).then(result => {
+            res.status(200).send("Contact Request deleted successfully!");
+          });
+        } else {
+          res.status(400).json(userSessionKey);
+        }
+      })
+      .catch(err => {
+        res.status(400).json(userSessionKey);
+      });
+  });
+});
+
 //------------------------Profile Methods------------------------
 profileRoutes.route("").post(function(req, res) {
   let userSessionKey = {
@@ -263,11 +376,226 @@ profileRoutes.route("/upload").post(upload.single("file"), function(req, res) {
               result.profilePicture.data = fs.readFileSync(req.file.path);
               result.profilePicture.contentType = "image/png";
               result.save();
-              res.json({ message: "Profile picture added to Mongo" });
+              res
+                .status(200)
+                .json({ message: "Profile picture added to Mongo" });
             })
             .catch(err => {
               res.status(400).json(userSessionKey);
             });
+        } else {
+          res.status(400).json(userSessionKey);
+        }
+      })
+      .catch(err => {
+        res.status(400).json(userSessionKey);
+      });
+  });
+});
+
+//------------------------Listing Methods------------------------
+listingRoutes.route("/create").post(function(req, res) {
+  let userSessionKey = {
+    username: "",
+    view: "",
+    sessionId: ""
+  };
+  UserSession.findOne({ username: req.body.username }).then(userSession => {
+    bcrypt
+      .compare(req.body.sessionId, userSession.sessionId)
+      .then(isMatch => {
+        if (isMatch) {
+          const newListing = new Listing();
+          newListing
+            .save()
+            .then(result => {
+              let listingId = {
+                listingId: result._id
+              };
+              res.status(200).json(listingId); //sends back listingId
+            })
+            .catch(err => {
+              res.status(400).json(userSessionKey);
+            });
+        } else {
+          res.status(400).json(userSessionKey);
+        }
+      })
+      .catch(err => {
+        res.status(400).json(userSessionKey);
+      });
+  });
+});
+
+listingRoutes.route("/update").post(function(req, res) {
+  let userSessionKey = {
+    username: "",
+    view: "",
+    sessionId: ""
+  };
+  UserSession.findOne({ username: req.body.username }).then(userSession => {
+    bcrypt
+      .compare(req.body.sessionId, userSession.sessionId)
+      .then(isMatch => {
+        if (isMatch) {
+          Listing.updateOne(
+            { _id: req.body.listingId },
+            req.body.listing,
+            function(err, affected, resp) {
+              console.log(resp);
+            }
+          )
+            .then(result => {
+              res.status(200).send("Listing updated successfully!");
+            })
+            .catch(err => {
+              res.status(400).json(userSessionKey);
+            });
+        } else {
+          res.status(400).json(userSessionKey);
+        }
+      })
+      .catch(err => {
+        res.status(400).json(userSessionKey);
+      });
+  });
+});
+
+listingRoutes.route("/upload").post(upload.single("file"), function(req, res) {
+  let userSessionKey = {
+    username: "",
+    view: "",
+    sessionId: ""
+  };
+  UserSession.findOne({ username: req.body.username }).then(userSession => {
+    bcrypt
+      .compare(req.body.sessionId, userSession.sessionId)
+      .then(isMatch => {
+        if (isMatch) {
+          Listing.findOne({ _id: req.body.listingId })
+            .then(result => {
+              result.pictures[req.body.imageIdTag].data = fs.readFileSync(
+                req.file.path
+              );
+              result.pictures[req.body.imageIdTag].contentType = "image/png";
+              result.save();
+              res.status(200).json({ message: "Uploaded picture to Mongo" });
+            })
+            .catch(err => {
+              res.status(400).json(userSessionKey);
+            });
+        } else {
+          res.status(400).json(userSessionKey);
+        }
+      })
+      .catch(err => {
+        res.status(400).json(userSessionKey);
+      });
+  });
+});
+
+listingRoutes.route("/delete").get(function(req, res) {
+  let userSessionKey = {
+    username: "",
+    view: "",
+    sessionId: ""
+  };
+  UserSession.findOne({ username: req.body.username }).then(userSession => {
+    bcrypt
+      .compare(req.body.sessionId, userSession.sessionId)
+      .then(isMatch => {
+        if (isMatch) {
+          Listing.deleteOne({ _id: req.body.listingId })
+            .then(result => {
+              res.status(200).send("Listing deleted successfully!");
+            })
+            .catch(err => {
+              res.status(400).json(userSessionKey);
+            });
+        } else {
+          res.status(400).json(userSessionKey);
+        }
+      })
+      .catch(err => {
+        res.status(400).json(userSessionKey);
+      });
+  });
+});
+
+//------------------------Listing (Room) Methods------------------------
+listingRoutes.route("/createRoom").post(function(req, res) {
+  let userSessionKey = {
+    username: "",
+    view: "",
+    sessionId: ""
+  };
+  UserSession.findOne({ username: req.body.username }).then(userSession => {
+    bcrypt
+      .compare(req.body.sessionId, userSession.sessionId)
+      .then(isMatch => {
+        if (isMatch) {
+          Listing.findOne(req.body.listingId)
+            .then(result => {
+              for (let i = 0; i < result.members.length; i++) {
+                if (result.rooms[i].owner == req.body.username) {
+                  res.status(400).send("Room added unsuccessfully");
+                  return;
+                } else {
+                  const newRoom = new Room();
+                  newRoom.owner = req.body.username;
+                  newRoom.roomType = "";
+                  newRoom.price = "";
+                  newRoom.bedSize = "";
+                  newRoom.comment = "";
+                  newRoom.save(function(err, room) {
+                    const listingRooms = req.body.rooms;
+                    listingRooms.rooms[i] = room._id;
+                    Listing.updateOne(
+                      { _id: req.body.listingId },
+                      {
+                        rooms: listingRooms
+                      },
+                      function(err, affected, resp) {
+                        console.log(resp);
+                      }
+                    );
+                  });
+                  res.status(200).send("Room added successfully!");
+                }
+              }
+            })
+            .catch(err => {
+              res.status(400).json(userSessionKey);
+            });
+        } else {
+          res.status(400).json(userSessionKey);
+        }
+      })
+      .catch(err => {
+        res.status(400).json(userSessionKey);
+      });
+  });
+});
+
+//------------------------Listing Retrieval Methods------------------------
+listingRoutes.route("/createRoom").post(function(req, res) {
+  let userSessionKey = {
+    username: "",
+    view: "",
+    sessionId: ""
+  };
+  UserSession.findOne({ username: req.body.username }).then(userSession => {
+    bcrypt
+      .compare(req.body.sessionId, userSession.sessionId)
+      .then(isMatch => {
+        if (isMatch) {
+          Listing.find(function(err, listings) {
+            if (err) {
+              console.log(err);
+            } else {
+              res.status(200).json(listings);
+            }
+          });
         } else {
           res.status(400).json(userSessionKey);
         }
@@ -283,7 +611,7 @@ userRoutes.route("/getAllUsers").get(function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.json(users);
+      res.status(200).json(users);
     }
   });
 });

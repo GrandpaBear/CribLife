@@ -9,6 +9,9 @@ let listingSchema = new Schema({
   contactRequests: {
     type: Array
   },
+  minimumMembersForContactRequest: {
+    type: Number
+  },
   posted: {
     type: Boolean
   },
@@ -16,6 +19,7 @@ let listingSchema = new Schema({
   rooms: {
     type: Array //Holds room objects.
   },
+  pictures: [{ data: Buffer, contentType: String }],
   postDate: {
     type: Date
   },
