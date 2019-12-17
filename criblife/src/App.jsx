@@ -5,6 +5,7 @@ import { LandingPage } from "./components/landing-page/landing-page-index";
 import { Profile } from "./components/profile/profile-index";
 import { Main } from "./components/main/main-index";
 import { Listing } from "./components/listing/listingpage-index";
+import { Nav } from "./components/nav/nav-index";
 
 class App extends React.Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          {/* <Nav changeView={this.changeView} /> */}
+          <Nav changeView={this.changeView} />
           {this.state.view == "LandingPage" && (
             <div>
               <LandingPage login={this.login} />
@@ -85,6 +86,7 @@ class App extends React.Component {
               <Listing />
             </div>
           )}
+          {this.state.view == "createListing" && <div></div>}
         </div>
       </Router>
     );
