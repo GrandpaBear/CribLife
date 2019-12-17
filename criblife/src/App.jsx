@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: "listing", //default LandingPage
+      view: "LandingPage", //default LandingPage
       login: true,
 
       //user info
@@ -31,7 +31,7 @@ class App extends React.Component {
       };
       if (view == null) {
         this.setState({
-          view: "listing"
+          view: "LandingPage"
         });
       } else {
         this.setState({
@@ -64,6 +64,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
+          {/* <Nav changeView={this.changeView} /> */}
           {this.state.view == "LandingPage" && (
             <div>
               <LandingPage login={this.login} />
@@ -81,7 +82,7 @@ class App extends React.Component {
           )}
           {this.state.view == "listing" && (
             <div>
-              <Listing/>
+              <Listing />
             </div>
           )}
         </div>

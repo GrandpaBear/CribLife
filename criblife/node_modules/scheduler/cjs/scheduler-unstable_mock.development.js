@@ -1,4 +1,4 @@
-/** @license React v0.17.0
+/** @license React v0.18.0
  * scheduler-unstable_mock.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -18,7 +18,6 @@ if (process.env.NODE_ENV !== "production") {
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var enableSchedulerDebugging = false;
-
 
 var enableProfiling = true;
 

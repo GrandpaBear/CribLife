@@ -1,4 +1,4 @@
-/** @license React v0.17.0
+/** @license React v0.18.0
  * scheduler-unstable_mock.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -16,7 +16,6 @@
 }(this, (function (exports) { 'use strict';
 
 var enableSchedulerDebugging = false;
-
 
 var enableProfiling = true;
 
