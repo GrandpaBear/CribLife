@@ -32,7 +32,7 @@ class App extends React.Component {
       };
       if (view == null) {
         this.setState({
-          view: "LandingPage"
+          view: "main"
         });
       } else {
         this.setState({
@@ -65,7 +65,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <Nav changeView={this.changeView} />
+          {/* <Nav changeView={this.changeView} /> */}
           {this.state.view == "LandingPage" && (
             <div>
               <LandingPage login={this.login} />

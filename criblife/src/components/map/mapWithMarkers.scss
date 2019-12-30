@@ -1,0 +1,30 @@
+.floating-panel {
+  position: absolute;
+  height: 125px;
+  width: 350px;
+  bottom: 40px;
+  left: 10px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  text-align: center;
+  font-family: "Roboto", "sans-serif";
+  line-height: 30px;
+  padding-left: 10px;
+  background: #ffffff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+
+  &:hover {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+}
+
+icon {
+  width: 70px;
+  height: 70px;
+}
+icon:hover {
+  fill: red;
+}

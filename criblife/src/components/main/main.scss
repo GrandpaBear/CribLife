@@ -1,41 +1,47 @@
-.main-filter {
-  height: 4em;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  font-family: "Avenir";
-  font-size: 21px;
+.mapDiv {
+  height: 100vh;
+  width: 100vh;
+  overflow: hidden;
 }
 
-.main-filter-dropdown {
-  text-align: center;
-  display: flex;
-}
+// .main-filter {
+//   height: 10em;
+//   text-align: center;
+//   display: flex;
+//   justify-content: center;
+//   font-family: "Avenir";
+//   font-size: 21px;
+// }
 
-.main-filter-button {
-  text-align: center;
-  font-family: "Avenir";
-  font-size: 14px;
-  width: 8.2em;
-  height: 40px;
-  padding: 7px 15px;
-  margin: 0.2em;
-  flex-direction: row;
-  border: solid 1px rgb(224, 224, 224);
-  box-shadow: 0px 1px 1px rgba(24, 3, 3, 0.425);
-  border-radius: 20px;
-  background-color: #fff;
-  color: rgb(0, 0, 0);
-  border-radius: 2px;
-  transition: all 250ms ease-in-out;
-  cursor: pointer;
-  &:hover {
-    background-color: rgb(240, 240, 240);
-  }
-  &:focus {
-    outline: none;
-    background-color: #7cc1d1;
-    border: solid 1px #7cc1d1;
-    color: #fff;
-  }
-}
+// .main-filter-dropdown {
+//   text-align: center;
+//   display: flex;
+// }
+
+// .main-filter-button {
+//   text-align: center;
+//   font-family: "Avenir";
+//   font-size: 14px;
+//   width: 8.2em;
+//   height: 40px;
+//   padding: 7px 15px;
+//   margin: 0.2em;
+//   flex-direction: row;
+//   border: solid 1px rgb(224, 224, 224);
+//   box-shadow: 0px 1px 1px rgba(24, 3, 3, 0.425);
+//   border-radius: 20px;
+//   background-color: #fff;
+//   color: rgb(0, 0, 0);
+//   border-radius: 2px;
+//   transition: all 250ms ease-in-out;
+//   cursor: pointer;
+//   &:hover {
+//     background-color: rgb(240, 240, 240);
+//   }
+//   &:focus {
+//     outline: none;
+//     background-color: #7cc1d1;
+//     border: solid 1px #7cc1d1;
+//     color: #fff;
+//   }
+// }

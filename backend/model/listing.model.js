@@ -53,9 +53,7 @@ let listingSchema = new Schema({
     studyRooms: Boolean
   },
   fees: {
-    internet: Number,
-    hydro: Number,
-    other: Number
+    type: String
   },
   aboutPlace: {
     type: String
