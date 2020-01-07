@@ -2,10 +2,21 @@
     display: inline-block;
     margin-right: 40px;
     max-width: 60px;
+    margin-bottom: 35px;
 }
 
-.amenity-icon {
+.amenity-active {
     background-color: #D7F0F3;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.amenity-inactive {
+    background-color: #EBEBEB;
     width: 60px;
     height: 60px;
     border-radius: 5px;

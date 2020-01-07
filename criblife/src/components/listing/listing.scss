@@ -6,7 +6,82 @@
     font-family: avenir-heavy;
     color: #A1A1A1;
     font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.listing-details-container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.listing-details h3 {
+    display: inline-block;
+    margin-right: 10px;
+    font-family: avenir-heavy;
+    font-size: 30px;
+}
+
+.details-icon {
+    height: 35px;
     margin-bottom: 20px;
+    margin-top: 9px;
+}
+
+.add-room {
+    border-style: dashed;
+    border-width: 1.5px;
+    border-color: #898989;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.add-room h5 {
+    margin-bottom: 0;
+    font-family: avenir-heavy;
+    color: #898989;
+}
+
+.room {
+    background-color: #F4F4F4;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.room h5 {
+    font-family: avenir-heavy;
+    display: block;
+    width: 100%;
+}
+
+.bedroom-details {
+    width: 100%;
+}
+
+.bedroom-details .details-icon {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.bedroom-details p {
+    display: inline-block;
+    margin-left: 1rem; 
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-family: avenir-light;
+    font-size: 16px;
+    vertical-align: bottom;
+}
+
+p.room-description {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+}
+
+.bedroom-details img {
+    padding-top: 0.5rem;
 }
 
 .subheader {
@@ -31,6 +106,8 @@
     padding: 2rem 0.4rem;
     border-radius: 10px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .profile-picture-listing {
@@ -81,6 +158,16 @@
     font-family: "avenir-bold";
     margin-top: 0.6rem;
     margin-bottom: 2rem;
+}
+
+hr {
+    width: 100%;
+
+}
+
+.amenity-btn {
+    display: inline;
+    cursor: pointer;
 }
 
 // Extra small devices (portrait phones, less than 576px)
