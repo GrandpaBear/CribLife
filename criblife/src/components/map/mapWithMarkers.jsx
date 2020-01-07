@@ -1,5 +1,6 @@
 import React from "react";
 import { compose, withProps } from "recompose";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./mapWithMarkers.scss";
 import { DetailedMarker } from "./marker/detailedMarker.jsx";
 import {
@@ -9,6 +10,7 @@ import {
   Marker
 } from "react-google-maps";
 import { withRouter } from "react-router-dom";
+import examplePic from "../../images/currentcribexample.png";
 
 const defaultMapOptions = {
   zoomControl: true,
@@ -19,6 +21,10 @@ const defaultMapOptions = {
   fullscreenControl: false,
   clickableIcons: false
 };
+
+let selectedPicture;
+let selectedTitle;
+let selectedPrice;
 
 const MapWithMarkers = compose(
   withProps({
@@ -37,17 +43,40 @@ const MapWithMarkers = compose(
     defaultCenter={{ lat: 42.397064, lng: -71.092577 }}
   >
     {props.listings.map(listing => {
+      if (listing.listingId == props.selectedMarker.listingId) {
+        selectedTitle = listing.title;
+        selectedPrice = listing.price;
+      }
+
       return (
         <DetailedMarker
-          position={listing.position}
           listingId={listing.listingId}
-          content={listing.content}
-          isSelected={listing.listingId == props.selectedMarker ? true : false}
-          resetMarkers={props.resetMarkers}
+          position={listing.position}
+          price={listing.price}
+          isSelected={
+            listing.listingId == props.selectedMarker.listingId ? true : false
+          }
+          setSelectedMarker={props.setSelectedMarker}
         />
       );
     })}
-    <div className="floating-panel">asdf</div>
+    {props.selectedMarker.listingId != "" && (
+      <div className="floating-panel">
+        <div className="row no-gutters">
+          <div className="col-lg-6 mapwithmarkers-image">
+            <img className="mapwithmarkers-image" src={examplePic} />
+          </div>
+          <div className="col-lg-6 mapwithmarkers-info">
+            <div className="mapwithmarkers-title">
+              <label>{selectedTitle}</label>
+            </div>
+            <div className="mapwithmarkers-price">
+              <label>{selectedPrice}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
   </GoogleMap>
 ));
 

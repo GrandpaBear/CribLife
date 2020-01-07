@@ -10,31 +10,23 @@ export class DetailedMarker extends React.Component {
       listingId: this.props.listingId,
       markerIcon: MarkerIconInactive,
       isSelected: this.props.isSelected,
-      label: this.props.content
+      label: this.props.price
     };
     this.onToggleSelection = this.onToggleSelection.bind(this);
     this.onMouseOverMarker = this.onMouseOverMarker.bind(this);
     this.onMouseOutMarker = this.onMouseOutMarker.bind(this);
   }
 
-  componentDidMount() {
-    if (this.props.isSelected == true) {
-      this.setState({
-        markerIcon: MarkerIconActive
-      });
-    }
-  }
-
   onToggleSelection() {
-    // this.setState({
-    //   isSelected: !this.state.isSelected
-    // });
-    // if (this.state.isSelected) {
-    //   this.onMouseOverMarker();
-    // } else {
-    //   this.onMouseOutMarker();
+    this.setState({
+      isSelected: true
+    });
+    // if (this.props.isSelected == true) {
+    //   this.setState({
+    //     markerIcon: MarkerIconActive
+    //   });
     // }
-    this.props.resetMarkers(this.state.listingId);
+    this.props.setSelectedMarker(this.props.listingId);
   }
 
   onMouseOverMarker() {
@@ -66,7 +58,9 @@ export class DetailedMarker extends React.Component {
         }}
         onMouseOver={() => this.onMouseOverMarker()}
         onMouseOut={() => this.onMouseOutMarker()}
-        options={{ icon: this.state.markerIcon }}
+        options={{
+          icon: this.props.isSelected ? MarkerIconActive : MarkerIconInactive
+        }}
       ></Marker>
     );
   }
