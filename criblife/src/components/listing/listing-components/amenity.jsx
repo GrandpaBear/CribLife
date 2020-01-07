@@ -13,7 +13,7 @@ export class Amenity extends React.Component {
     render () {
         return (
             <div class="amenity">
-                <div className="amenity-icon">
+                <div className={this.props.activestate}>
                     <img className="icon" src={this.props.icon}></img>
                 </div>
                 <div className="amenity-label">
