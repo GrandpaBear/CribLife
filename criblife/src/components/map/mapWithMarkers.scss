@@ -36,11 +36,40 @@
 }
 
 .mapwithmarkers-title {
+  margin-right: 10px;
+  margin-left: 10px;
   border-radius: 0px 5px 0px 0px;
   font-family: "Avenir";
   font-weight: bold;
   font-size: 18px;
 }
 
+.mapwithmarkers-poster {
+  margin-right: 10px;
+  margin-left: 10px;
+  font-family: "Avenir";
+  font-size: 16px;
+  color: #afafaf;
+}
+
 .mapwithmarkers-price {
+  margin-right: 10px;
+  margin-left: 10px;
+  font-family: "Avenir";
+  font-size: 16px;
+}
+
+.listing-info-price-container {
+  background-color: #7cc1d1;
+  color: #ffffff;
+  font-family: "Avenir";
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

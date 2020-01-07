@@ -23,6 +23,7 @@ const defaultMapOptions = {
 };
 
 let selectedPicture;
+let selectedPoster;
 let selectedTitle;
 let selectedPrice;
 
@@ -45,6 +46,7 @@ const MapWithMarkers = compose(
     {props.listings.map(listing => {
       if (listing.listingId == props.selectedMarker.listingId) {
         selectedTitle = listing.title;
+        selectedPoster = listing.members[0];
         selectedPrice = listing.price;
       }
 
@@ -70,8 +72,14 @@ const MapWithMarkers = compose(
             <div className="mapwithmarkers-title">
               <label>{selectedTitle}</label>
             </div>
-            <div className="mapwithmarkers-price">
-              <label>{selectedPrice}</label>
+            <div className="mapwithmarkers-poster">
+              <label>{selectedPoster}</label>
+            </div>
+            <div className="row mapwithmarkers-price">
+              <div className="col-lg-5 listing-info-price-container">
+                {selectedPrice}
+              </div>
+              <div className="col-lg-7 " />
             </div>
           </div>
         </div>

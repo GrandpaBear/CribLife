@@ -53,8 +53,9 @@ export class DetailedMarker extends React.Component {
         label={{
           text: this.state.label,
           color: "#FFFFFF",
-          fontFamily: "Avenir-Bold",
-          fontSize: "14px"
+          fontFamily: "Avenir",
+          fontWeight: "bold",
+          fontSize: "16px"
         }}
         onMouseOver={() => this.onMouseOverMarker()}
         onMouseOut={() => this.onMouseOutMarker()}
