@@ -32,7 +32,7 @@ class App extends React.Component {
       };
       if (view == null) {
         this.setState({
-          view: "main"
+          view: "listing"
         });
       } else {
         this.setState({

@@ -1,9 +1,12 @@
 import React from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Dropdown } from "react-bootstrap";
+import { DropdownButton } from "react-bootstrap";
 import "./main.scss";
 import MapWithAMarkers from "../map/mapWithMarkers.jsx";
 import { ListingItem } from "./listingitem.jsx";
+import Nav from "../nav/nav-index.jsx";
 
 import UnfoldMoreNonActive from "../../images/unfoldmorenonactive.png";
 import UnfoldMoreActive from "../../images/unfoldmoreactive.png";
@@ -42,19 +45,39 @@ export class Main extends React.Component {
           bedroomsAvailable: 5
         }
       ],
-      selectedMarker: ""
+      selectedMarker: "",
+      lengthValue: "Length",
+      termValue: "Start Term",
+      roomsValue: "Rooms"
     };
     this.setSelectedMarker = this.setSelectedMarker.bind(this);
+    this.changeLengthValue = this.changeLengthValue.bind(this);
+    this.changeRoomsValue = this.changeRoomsValue.bind(this);
+    this.changeTermValue = this.changeTermValue.bind(this);
   }
 
   setSelectedMarker(listingId) {
     this.setState({ selectedMarker: listingId });
   }
 
+  changeLengthValue(text) {
+    this.setState({ lengthValue: text });
+  }
+
+  changeTermValue(text) {
+    this.setState({ termValue: text });
+  }
+
+  changeRoomsValue(text) {
+    this.setState({ roomsValue: text });
+  }
+
   render() {
     return (
       <div>
-        <div className="row no-gutters navStyle">Nav Bar</div>
+        <div className="row no-gutters">
+          <div className="col-lg-12"></div>
+        </div>
         <div className="row no-gutters">
           <div className="col-lg-7">
             <div className="main-margins">
@@ -62,12 +85,93 @@ export class Main extends React.Component {
                 <div className="col-lg-12">143 Results for Waterloo, ON</div>
               </div>
               <div className="row no-gutters main-filters">
-                <div className="col-lg-12">
-                  <div className="main-filter-dropdown">
-                    <button type="button" className="main-filter-button">
-                      $9999-$9999
-                    </button>
-                  </div>
+                <div className="col-lg-4 text-left w-100">
+                  <DropdownButton title={this.state.termValue}>
+                    <Dropdown.Item
+                      onClick={e => this.changeTermValue(e.target.textContent)}
+                    >
+                      Any
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={e => this.changeTermValue(e.target.textContent)}
+                    >
+                      Spring 2020
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={e => this.changeTermValue(e.target.textContent)}
+                    >
+                      Fall 2020
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={e => this.changeTermValue(e.target.textContent)}
+                    >
+                      Winter 2021
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={e => this.changeTermValue(e.target.textContent)}
+                    >
+                      Spring 2021
+                    </Dropdown.Item>
+                  </DropdownButton>
+                </div>
+                <div className="col-lg-4 text-center w-80">
+                  <DropdownButton title={this.state.lengthValue}>
+                    <Dropdown.Item
+                      onClick={e =>
+                        this.changeLengthValue(e.target.textContent)
+                      }
+                    >
+                      Any
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={e =>
+                        this.changeLengthValue(e.target.textContent)
+                      }
+                    >
+                      4-Month
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={e =>
+                        this.changeLengthValue(e.target.textContent)
+                      }
+                    >
+                      8-Month
+                    </Dropdown.Item>
+                  </DropdownButton>
+                </div>
+                <div className="col-lg-4 text-right w-80">
+                  <DropdownButton title={this.state.roomsValue}>
+                    <Dropdown.Item
+                      onClick={e => this.changeRoomsValue(e.target.textContent)}
+                    >
+                      Any
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={e => this.changeRoomsValue(e.target.textContent)}
+                    >
+                      1
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={e => this.changeRoomsValue(e.target.textContent)}
+                    >
+                      2
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={e => this.changeRoomsValue(e.target.textContent)}
+                    >
+                      3
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={e => this.changeRoomsValue(e.target.textContent)}
+                    >
+                      4
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={e => this.changeRoomsValue(e.target.textContent)}
+                    >
+                      5+
+                    </Dropdown.Item>
+                  </DropdownButton>
                 </div>
               </div>
               <div className="row no-gutters main-divider"></div>

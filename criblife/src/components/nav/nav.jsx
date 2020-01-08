@@ -9,8 +9,8 @@ export class Nav extends React.Component {
 
   render() {
     return (
-      <div>
-        <button
+      <div className="row navbar">
+        {/* <button
           type="button"
           className=""
           onClick={() => this.props.changeView("main")}
@@ -37,7 +37,7 @@ export class Nav extends React.Component {
           onClick={() => this.props.changeView("listing")}
         >
           Listing
-        </button>
+        </button> */}
       </div>
     );
   }
