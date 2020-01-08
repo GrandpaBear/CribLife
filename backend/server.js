@@ -406,6 +406,14 @@ listingRoutes.route("/create").post(function(req, res) {
       .then(isMatch => {
         if (isMatch) {
           const newListing = new Listing();
+          newListing.posted = false;
+          newListing.members = req.body.newListing.members;
+          newListing.title = req.body.newListing.title;
+          newListing.stayLength = req.body.newListing.stayLength;
+          newListing.term = req.body.newListing.term;
+          newListing.address = req.body.newListing.address;
+          newListing.bedroomsTotal = req.body.newListing.bedroomsTotal;
+          bedroomsAvailable = req.body.newListing.bedroomsAvailable;
           newListing
             .save()
             .then(result => {

@@ -39,7 +39,7 @@ export class Login extends React.Component {
 
     axios.post("http://localhost:4000/user/login", userLoginInfo).then(res => {
       console.log("UserSessionKey Received: " + res.data);
-      this.props.login("listing", res);
+      this.props.login("main", res);
     });
 
     this.setState({
