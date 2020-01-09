@@ -5,7 +5,7 @@ import { LandingPage } from "./components/landing-page/landing-page-index";
 import { Profile } from "./components/profile/profile-index";
 import { Main } from "./components/main/main-index";
 import { Listing } from "./components/listing/listingpage-index";
-import { Nav } from "./components/nav/nav-index";
+import { Group } from "./components/group/group-index";
 
 class App extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class App extends React.Component {
       };
       if (view == null) {
         this.setState({
-          view: "listing"
+          view: "LandingPage"
         });
       } else {
         this.setState({
@@ -49,7 +49,13 @@ class App extends React.Component {
     this.setState({
       view: view
     });
-    localStorage.setItem("view", view);
+    if (view == "LandingPage") {
+      localStorage.removeItem("sessionId");
+      localStorage.removeItem("view");
+      localStorage.removeItem("username");
+    } else {
+      localStorage.setItem("view", view);
+    }
   }
 
   login(view, res) {
@@ -78,15 +84,19 @@ class App extends React.Component {
           )}
           {this.state.view == "main" && (
             <div>
-              <Main />
+              <Main changeView={this.changeView} />
             </div>
           )}
           {this.state.view == "listing" && (
             <div>
-              <Listing />
+              <Listing changeView={this.changeView} />
             </div>
           )}
-          {this.state.view == "createListing" && <div></div>}
+          {this.state.view == "group" && (
+            <div>
+              <Group changeView={this.changeView} />
+            </div>
+          )}
         </div>
       </Router>
     );

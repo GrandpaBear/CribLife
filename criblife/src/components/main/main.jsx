@@ -6,7 +6,7 @@ import { DropdownButton } from "react-bootstrap";
 import "./main.scss";
 import MapWithAMarkers from "../map/mapWithMarkers.jsx";
 import { ListingItem } from "./listingitem.jsx";
-import Nav from "../nav/nav-index.jsx";
+import { Nav } from "../nav/nav-index.jsx";
 
 import UnfoldMoreNonActive from "../../images/unfoldmorenonactive.png";
 import UnfoldMoreActive from "../../images/unfoldmoreactive.png";
@@ -48,7 +48,8 @@ export class Main extends React.Component {
       selectedMarker: "",
       lengthValue: "Length",
       termValue: "Start Term",
-      roomsValue: "Rooms"
+      roomsValue: "Rooms",
+      searchResult: ""
     };
     this.setSelectedMarker = this.setSelectedMarker.bind(this);
     this.changeLengthValue = this.changeLengthValue.bind(this);
@@ -72,17 +73,30 @@ export class Main extends React.Component {
     this.setState({ roomsValue: text });
   }
 
+  updateSearch = search => {
+    this.setState({
+      searchResult: "for " + search
+    });
+  };
+
   render() {
     return (
       <div>
         <div className="row no-gutters">
-          <div className="col-lg-12"></div>
+          <div className="col-lg-12">
+            <Nav
+              changeView={this.props.changeView}
+              updateSearch={this.updateSearch}
+            />
+          </div>
         </div>
         <div className="row no-gutters">
           <div className="col-lg-7">
             <div className="main-margins">
               <div className="row no-gutters main-searchresult">
-                <div className="col-lg-12">143 Results for Waterloo, ON</div>
+                <div className="col-lg-12">
+                  {"143 Results " + this.state.searchResult}
+                </div>
               </div>
               <div className="row no-gutters main-filters">
                 <div className="col-lg-4 text-left w-100">
@@ -191,43 +205,6 @@ export class Main extends React.Component {
                 </ul>
               </div>
             </div>
-            {/* <div className="row">
-            <div className="col-lg-12">
-              <div className="main-filter">
-                <div className="main-filter-dropdown">
-                  <button type="button" className="main-filter-button">
-                    Any Term
-                  </button>
-                </div>
-                <div className="main-filter-dropdown">
-                  <div className="main-filter-button">
-                    Any Length
-                    <img src={UnfoldMoreNonActive} />
-                  </div>
-                </div>
-                <div className="main-filter-dropdown">
-                  <button type="button" className="main-filter-button">
-                    $9999-$9999
-                  </button>
-                </div>
-                <div className="main-filter-dropdown">
-                  <button type="button" className="main-filter-button">
-                    Any # Rooms
-                  </button>
-                </div>
-                <div className="main-filter-dropdown">
-                  <button type="button" className="main-filter-button">
-                    Whole place
-                  </button>
-                </div>
-                <div className="main-filter-dropdown">
-                  <button type="button" className="main-filter-button">
-                    More Filters
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div> */}
           </div>
           <div className="col-lg-5">
             <div className="mapDiv">

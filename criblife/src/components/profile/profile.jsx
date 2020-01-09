@@ -10,6 +10,7 @@ import CurrentCribImage from "../../images/currentcribexample.png";
 import MyListingImage from "../../images/mylistingexample.png";
 import CurrentCribIcon from "../../images/currentcribicon.png";
 import MyListingIcon from "../../images/mylistingicon.png";
+import { Nav } from "../nav/nav-index.jsx";
 
 export class Profile extends React.Component {
   constructor(props) {
@@ -106,180 +107,183 @@ export class Profile extends React.Component {
 
   render() {
     return (
-      <div className="profile">
-        {!this.state.editMode && (
-          <form className="row">
-            <div className="col-lg-5">
-              <div className="profile-user">
-                {/* <img
+      <div>
+        <Nav changeView={this.props.changeView} />
+        <div className="profile">
+          {!this.state.editMode && (
+            <form className="row">
+              <div className="col-lg-5">
+                <div className="profile-user">
+                  {/* <img
                   className="profile-picture"
                   src={this.state.profilePicture}
                   onerror="this.style.display='none'"
                 /> */}
-                <object
-                  className="profile-picture"
-                  data={this.state.profilePicture}
-                  type="image/png"
-                ></object>
-                <button
-                  type="submit"
-                  className="profile-edit"
-                  onClick={this.toggleEditMode}
-                >
-                  Edit Profile
-                </button>
-                <div className="profile-userdetail">
-                  <img src={UsernamePic} />
-                  <div className="profile-userdetail-detail">
-                    {this.state.username}
-                  </div>
-                </div>
-                <div className="profile-userdetail">
-                  <img src={LocationPic} />
-                  <div className="profile-userdetail-detail">
-                    {this.state.location}
-                  </div>
-                </div>
-                <div className="profile-userdetail">
-                  <img src={SchoolPic} />
-                  <div className="profile-userdetail-detail">
-                    {this.state.school}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-7">
-              <div className="profile-content">
-                <div className="profile-name">{this.state.fullname}</div>
-                <div className="profile-about">
-                  <div className="profile-title">ABOUT</div>
-                  <div className="profile-about-description">
-                    {this.state.about}
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-lg-6">
-                    <div className="profile-option">
-                      <div className="profile-title">CURRENT CRIB</div>
-                      <div className="profile-option-button">
-                        <div className="profile-crib-image">
-                          <img src={CurrentCribImage} />
-                        </div>
-                        <div className="profile-circle">
-                          <img src={CurrentCribIcon} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-6">
-                    <div className="profile-option">
-                      <div className="profile-title">YOUR LISTING</div>
-                      <div className="profile-option-button">
-                        <div className="profile-crib-image">
-                          <img src={MyListingImage} />
-                        </div>
-                        <div className="profile-circle">
-                          <img src={MyListingIcon} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        )}
-        {this.state.editMode && (
-          <form onSubmit={this.handleSubmit} className="row" id="profile">
-            <div className="col-lg-5">
-              <div className="profile-user">
-                <div className="profile-picture-drop-looks">
-                  <img src={this.state.profilePicture} />
-                  <input
-                    type="file"
-                    id="upload-photo"
-                    className="profile-picture-drop"
-                    onChange={this.uploadImage}
-                  />
-                  <label for="upload-photo" className="profile-picture-drop">
-                    <img src={UploadIcon} />
-                  </label>
-                </div>
-                <button className="profile-save" form="profile">
-                  Save
-                </button>
-                <div className="profile-userdetail">
-                  <img src={UsernamePic} />
-                  <div className="profile-userdetail-detail">
-                    {this.state.username}
-                  </div>
-                </div>
-                <div className="profile-userdetail">
-                  <img src={LocationPic} />
-                  <input
-                    type="text"
-                    name="location"
-                    className="profile-userdetail-detail-edit"
-                    defaultValue={this.state.location}
-                  />
-                </div>
-                <div className="profile-userdetail">
-                  <img src={SchoolPic} />
-                  <input
-                    type="text"
-                    name="school"
-                    className="profile-userdetail-detail-edit"
-                    defaultValue={this.state.school}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-7">
-              <div className="profile-content">
-                <div className="profile-name">Jianying Chiang</div>
-                <div className="profile-about">
-                  <div className="profile-title">ABOUT</div>
-                  <textarea
-                    name="about"
-                    form="profile"
-                    className="profile-about-description-edit"
-                    spellcheck="false"
+                  <object
+                    className="profile-picture"
+                    data={this.state.profilePicture}
+                    type="image/png"
+                  ></object>
+                  <button
+                    type="submit"
+                    className="profile-edit"
+                    onClick={this.toggleEditMode}
                   >
-                    {this.state.about}
-                  </textarea>
+                    Edit Profile
+                  </button>
+                  <div className="profile-userdetail">
+                    <img src={UsernamePic} />
+                    <div className="profile-userdetail-detail">
+                      {this.state.username}
+                    </div>
+                  </div>
+                  <div className="profile-userdetail">
+                    <img src={LocationPic} />
+                    <div className="profile-userdetail-detail">
+                      {this.state.location}
+                    </div>
+                  </div>
+                  <div className="profile-userdetail">
+                    <img src={SchoolPic} />
+                    <div className="profile-userdetail-detail">
+                      {this.state.school}
+                    </div>
+                  </div>
                 </div>
-                <div className="row">
-                  <div className="col-lg-6">
-                    <div className="profile-option">
-                      <div className="profile-title">CURRENT CRIB</div>
-                      <div className="profile-option-button">
-                        <div className="profile-crib-image">
-                          <img src={CurrentCribImage} />
-                        </div>
-                        <div className="profile-circle">
-                          <img src={CurrentCribIcon} />
+              </div>
+              <div className="col-lg-7">
+                <div className="profile-content">
+                  <div className="profile-name">{this.state.fullname}</div>
+                  <div className="profile-about">
+                    <div className="profile-title">ABOUT</div>
+                    <div className="profile-about-description">
+                      {this.state.about}
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-lg-6">
+                      <div className="profile-option">
+                        <div className="profile-title">CURRENT CRIB</div>
+                        <div className="profile-option-button">
+                          <div className="profile-crib-image">
+                            <img src={CurrentCribImage} />
+                          </div>
+                          <div className="profile-circle">
+                            <img src={CurrentCribIcon} />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-lg-6">
-                    <div className="profile-option">
-                      <div className="profile-title">YOUR LISTING</div>
-                      <div className="profile-option-button">
-                        <div className="profile-crib-image">
-                          <img src={MyListingImage} />
-                        </div>
-                        <div className="profile-circle">
-                          <img src={MyListingIcon} />
+                    <div className="col-lg-6">
+                      <div className="profile-option">
+                        <div className="profile-title">YOUR LISTING</div>
+                        <div className="profile-option-button">
+                          <div className="profile-crib-image">
+                            <img src={MyListingImage} />
+                          </div>
+                          <div className="profile-circle">
+                            <img src={MyListingIcon} />
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </form>
-        )}
+            </form>
+          )}
+          {this.state.editMode && (
+            <form onSubmit={this.handleSubmit} className="row" id="profile">
+              <div className="col-lg-5">
+                <div className="profile-user">
+                  <div className="profile-picture-drop-looks">
+                    <img src={this.state.profilePicture} />
+                    <input
+                      type="file"
+                      id="upload-photo"
+                      className="profile-picture-drop"
+                      onChange={this.uploadImage}
+                    />
+                    <label for="upload-photo" className="profile-picture-drop">
+                      <img src={UploadIcon} />
+                    </label>
+                  </div>
+                  <button className="profile-save" form="profile">
+                    Save
+                  </button>
+                  <div className="profile-userdetail">
+                    <img src={UsernamePic} />
+                    <div className="profile-userdetail-detail">
+                      {this.state.username}
+                    </div>
+                  </div>
+                  <div className="profile-userdetail">
+                    <img src={LocationPic} />
+                    <input
+                      type="text"
+                      name="location"
+                      className="profile-userdetail-detail-edit"
+                      defaultValue={this.state.location}
+                    />
+                  </div>
+                  <div className="profile-userdetail">
+                    <img src={SchoolPic} />
+                    <input
+                      type="text"
+                      name="school"
+                      className="profile-userdetail-detail-edit"
+                      defaultValue={this.state.school}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-7">
+                <div className="profile-content">
+                  <div className="profile-name">Jianying Chiang</div>
+                  <div className="profile-about">
+                    <div className="profile-title">ABOUT</div>
+                    <textarea
+                      name="about"
+                      form="profile"
+                      className="profile-about-description-edit"
+                      spellcheck="false"
+                    >
+                      {this.state.about}
+                    </textarea>
+                  </div>
+                  <div className="row">
+                    <div className="col-lg-6">
+                      <div className="profile-option">
+                        <div className="profile-title">CURRENT CRIB</div>
+                        <div className="profile-option-button">
+                          <div className="profile-crib-image">
+                            <img src={CurrentCribImage} />
+                          </div>
+                          <div className="profile-circle">
+                            <img src={CurrentCribIcon} />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-6">
+                      <div className="profile-option">
+                        <div className="profile-title">YOUR LISTING</div>
+                        <div className="profile-option-button">
+                          <div className="profile-crib-image">
+                            <img src={MyListingImage} />
+                          </div>
+                          <div className="profile-circle">
+                            <img src={MyListingIcon} />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          )}
+        </div>
       </div>
     );
   }
