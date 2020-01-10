@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./listinggroup.scss";
-import examplePic from "../../images/currentcribexample.png";
+import examplePic from "../../images/mylistingexample.png";
 import InfoBedroom from "../../images/info-bedroom.png";
 import InfoBathroom from "../../images/info-bathroom.png";
 

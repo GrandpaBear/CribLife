@@ -1,24 +1,174 @@
-.img-wrapper {
+.group-img-wrapper {
   position: relative;
 }
 
-.img-responsive {
+.group-img-responsive {
   width: 100%;
-  height: auto;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
-.img-overlay {
+.group-img-overlay {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
+  left: 0 auto;
   right: 0;
-  text-align: center;
+  text-align: right !important;
+  // button {
+  //   text-align: center;
+  //   font-family: "Avenir";
+  //   font-size: 14px;
+  //   width: 8.2em;
+  //   height: 40px;
+  //   padding: 7px 15px;
+  //   margin: 0.2em;
+  //   flex-direction: row;
+  //   border: solid 1px rgb(224, 224, 224);
+  //   box-shadow: 0px 1px 1px rgba(24, 3, 3, 0.425);
+  //   border-radius: 20px;
+  //   background-color: #fff;
+  //   color: rgb(0, 0, 0);
+  //   border-radius: 2px;
+  //   transition: all 250ms ease-in-out;
+  //   cursor: pointer;
+  //   &:hover {
+  //     background-color: rgb(240, 240, 240);
+  //   }
+  //   &:focus {
+  //     outline: none;
+  //     background-color: #7cc1d1;
+  //     border: solid 1px #7cc1d1;
+  //     color: #fff;
+  //   }
+  // }
+  div {
+    text-align: center;
+    font-family: "Avenir";
+    font-size: 14px;
+    width: 8.2em;
+    height: 40px;
+    padding: 7px 15px;
+    margin: 0.2em;
+    flex-direction: row;
+    border: solid 1px rgb(224, 224, 224);
+    box-shadow: 0px 1px 1px rgba(24, 3, 3, 0.425);
+    border-radius: 20px;
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+    border-radius: 2px;
+    transition: all 250ms ease-in-out;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(240, 240, 240);
+    }
+    &:focus {
+      outline: none;
+      background-color: #7cc1d1;
+      border: solid 1px #7cc1d1;
+      color: #fff;
+    }
+  }
 }
 
-.img-overlay:before {
+.group-img-overlay:before {
   content: " ";
   display: block;
   /* adjust 'height' to position overlay content vertically */
-  height: 50%;
+  height: 0%;
+}
+
+.carousel-indicators {
+  margin-left: 350px !important;
+  margin-right: 350px !important;
+  z-index: -1 !important;
+}
+
+.group-img-close {
+  background-image: url("../../images/closeListing.png");
+  background-size: contain;
+  position: absolute;
+  top: 10px;
+  left: -55px;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-align: center;
+
+  font-family: "Avenir";
+  font-size: 14px;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 7px 15px;
+  margin: 0.2em;
+  transition: all 250ms ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background-image: url("../../images/closeListingHover.png");
+    background-color: rgb(240, 240, 240);
+  }
+}
+
+.group-img-btn {
+  position: absolute;
+  top: 145px;
+  left: -170px;
+  font-family: "Avenir" !important;
+  font-style: normal !important;
+  font-size: 12px !important;
+  color: #ffffff !important;
+  background-color: #7cc1d1 !important;
+  border: none !important;
+  width: 150px !important;
+  padding: 11px 4px !important;
+  cursor: pointer;
+  &:hover {
+    background-color: #6194a0 !important;
+  }
+}
+
+.group-img-btn-disabled {
+  position: absolute;
+  top: 145px;
+  left: -170px;
+  font-family: "Avenir" !important;
+  font-style: normal !important;
+  font-size: 12px !important;
+  color: rgb(238, 238, 238) !important;
+  background-color: rgb(163, 188, 194) !important;
+  border: none !important;
+  width: 150px !important;
+  padding: 11px 4px !important;
+}
+
+.carousel-control-prev {
+  background-color: rgba(124, 124, 124, 0.5) !important;
+  width: 80px !important;
+}
+
+.carousel-control-next {
+  background-color: rgba(124, 124, 124, 0.5) !important;
+  width: 80px !important;
+}
+
+.group-member-picture {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img {
+    margin: 13px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+  label {
+    cursor: pointer;
+  }
 }
