@@ -5,13 +5,15 @@ import { LandingPage } from "./components/landing-page/landing-page-index";
 import { Profile } from "./components/profile/profile-index";
 import { Main } from "./components/main/main-index";
 import { Listing } from "./components/listing/listingpage-index";
+import { CreateStepA } from "./components/create-steps/create-step-a-index";
+import { CreateStepB } from "./components/create-steps/create-step-b-index";
 import { Nav } from "./components/nav/nav-index";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: "LandingPage", //default LandingPage
+      view: "CreateStepA", //default LandingPage
       login: true,
 
       //user info
@@ -32,7 +34,7 @@ class App extends React.Component {
       };
       if (view == null) {
         this.setState({
-          view: "main"
+          view: "CreateStepA"
         });
       } else {
         this.setState({
@@ -84,6 +86,16 @@ class App extends React.Component {
           {this.state.view == "listing" && (
             <div>
               <Listing />
+            </div>
+          )}
+          {this.state.view == "CreateStepA" && (
+            <div>
+              <CreateStepA />
+            </div>
+          )}
+          {this.state.view == "CreateStepB" && (
+            <div>
+              <CreateStepB />
             </div>
           )}
           {this.state.view == "createListing" && <div></div>}
