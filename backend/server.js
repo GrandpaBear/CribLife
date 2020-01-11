@@ -95,7 +95,7 @@ const registerUser = async function(req, res, newUserAuth) {
     user.myListing = "";
     user.currentCrib = "";
     user.profilePicture = {
-      data: fs.readFileSync("../criblife/src/images/profile.png"),
+      data: fs.readFileSync("../frontend/src/images/profile.png"),
       contentType: "image/png"
     };
     console.log(user);
