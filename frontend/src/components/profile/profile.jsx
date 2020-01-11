@@ -7,7 +7,7 @@ import SchoolPic from "../../images/school.png";
 import LocationPic from "../../images/location.png";
 import UsernamePic from "../../images/username.png";
 import CurrentCribImage from "../../images/currentcribexample.png";
-import MyListingImage from "../../images/mylistingexample.png";
+import MyListingImage from "../../images/lester1.png";
 import CurrentCribIcon from "../../images/currentcribicon.png";
 import MyListingIcon from "../../images/mylistingicon.png";
 import { Nav } from "../nav/nav-index.jsx";

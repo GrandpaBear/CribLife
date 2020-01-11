@@ -1,214 +1,220 @@
 .listing-pg {
-    margin-top: 3rem;
+  margin-top: 3rem;
 }
 
 .details-subheader {
-    font-family: avenir-heavy;
-    color: #A1A1A1;
-    font-size: 16px;
-    margin-bottom: 10px;
+  font-family: "Avenir";
+  color: #a1a1a1;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .listing-details-container {
-    margin-left: 1rem;
-    margin-right: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .listing-details h3 {
-    display: inline-block;
-    margin-right: 10px;
-    font-family: avenir-heavy;
-    font-size: 30px;
+  display: inline-block;
+  margin-right: 10px;
+  font-family: "Avenir";
+  font-size: 30px;
 }
 
 .details-icon {
-    height: 35px;
-    margin-bottom: 20px;
-    margin-top: 9px;
+  height: 35px;
+  margin-bottom: 20px;
+  margin-top: 9px;
 }
 
 .add-room {
-    border-style: dashed;
-    border-width: 1.5px;
-    border-color: #898989;
-    padding: 1.5rem 2rem;
-    border-radius: 10px;
-    margin-top: 1rem;
+  border-style: dashed;
+  border-width: 1.5px;
+  border-color: #898989;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  margin-top: 1rem;
 }
 
 .add-room h5 {
-    margin-bottom: 0;
-    font-family: avenir-heavy;
-    color: #898989;
+  margin-bottom: 0;
+  font-family: "Avenir";
+  color: #898989;
 }
 
 .room {
-    background-color: #F4F4F4;
-    padding: 2rem;
-    border-radius: 10px;
-    margin-top: 1rem;
+  background-color: #f4f4f4;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 1rem;
 }
 
 .room h5 {
-    font-family: avenir-heavy;
-    display: block;
-    width: 100%;
+  font-family: "Avenir";
+  display: block;
+  width: 100%;
 }
 
 .bedroom-details {
-    width: 100%;
+  width: 100%;
 }
 
 .bedroom-details .details-icon {
-    margin-bottom: 0;
-    margin-top: 0;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .bedroom-details p {
-    display: inline-block;
-    margin-left: 1rem; 
-    margin-bottom: 0;
-    margin-top: 10px;
-    font-family: avenir-light;
-    font-size: 16px;
-    vertical-align: bottom;
+  display: inline-block;
+  margin-left: 1rem;
+  margin-bottom: 0;
+  margin-top: 10px;
+  font-family: avenir-light;
+  font-size: 16px;
+  vertical-align: bottom;
 }
 
 p.room-description {
-    display: block;
-    width: 100%;
-    margin-left: 0;
+  display: block;
+  width: 100%;
+  margin-left: 0;
 }
 
 .bedroom-details img {
-    padding-top: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 .subheader {
-    font-family: avenir-heavy;
-    color: #7CC1D1;
-    text-transform: uppercase;
-    font-size: 14px;
-    margin-bottom: 20px;
+  font-family: "Avenir";
+  color: #7cc1d1;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
 .container {
-    max-width: 95%;
+  max-width: 95%;
 }
 
 .section {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .profile-listing {
-    background-color: white;
-    border: 1.2px solid #DBDBDB;
-    padding: 2rem 0.4rem;
-    border-radius: 10px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+  background-color: white;
+  border: 1.2px solid #dbdbdb;
+  padding: 2rem 0.4rem;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile-picture-listing {
-    padding: 1em;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
+  padding: 1em;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
 }
 
 .price-listing {
-    text-align: right;
-    padding: 0.6rem 2rem;
+  text-align: right;
+  padding: 0.6rem 2rem;
 }
 
-.price-input, .price-room {
-    display: inline-block;
+.price-input,
+.price-room {
+  display: inline-block;
 }
 
 .price-input {
-    font-size: 36px;
-    font-family: avenir-heavy;
-    margin-right: 0.3rem;
+  font-size: 36px;
+  font-family: "Avenir";
+  margin-right: 0.3rem;
 }
 
 .price-room {
-    font-size: 16px;
-    font-family: avenir;
+  font-size: 16px;
+  font-family: avenir;
 }
 
 .btn-container-listing {
-    text-align: center;
+  text-align: center;
 }
 
 .price-input {
-    width: 100px;
-    padding: 0.1px;
-    margin-left: 0;
-    display: inline;
+  width: 100px;
+  padding: 0.1px;
+  margin-left: 0;
+  display: inline;
 }
 
 .text-area-listing {
-    height: 220px;
+  height: 220px;
 }
 
 .feature-input {
-    width: 30px;
+  width: 30px;
 }
 
 .roomdescr-input {
-    background-color: transparent;
-    height: 100px;
-    width: 100%;
+  background-color: transparent;
+  height: 100px;
+  width: 100%;
 }
 
 .main-img {
-    overflow: hidden;
-    height: 392px;
+  overflow: hidden;
+  height: 392px;
+  img {
+    min-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
 }
 
 .other-img {
-    height: 120px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
+  height: 120px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
 }
 
 .listing-title {
-    font-size: 50px;
-    font-family: "avenir-bold";
-    margin-top: 0.6rem;
-    margin-bottom: 2rem;
+  font-size: 50px;
+  font-family: "avenir-bold";
+  margin-top: 0.6rem;
+  margin-bottom: 2rem;
 }
 
 hr {
-    width: 100%;
-
+  width: 100%;
 }
 
 .amenity-btn {
-    display: inline;
-    cursor: pointer;
+  display: inline;
+  cursor: pointer;
 }
 
 // Extra small devices (portrait phones, less than 576px)
-@media (max-width: 575.98px) { 
-
+@media (max-width: 575.98px) {
 }
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
-    
 }
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
-
- }
+}
 
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px) {
-    
 }
 
 // Extra large devices (large desktops)

@@ -16,9 +16,14 @@ import AddressPic from "../../images/address.png";
 import DatePic from "../../images/date.png";
 import ClockPic from "../../images/clock.png";
 import Room from "../../images/currentcribexample.png";
+import Room2 from "../../images/lester1.png";
+import Room3 from "../../images/lester2.png";
+import Room4 from "../../images/lester3.png";
 import BedIcon from "../../images/bed.png";
 import BathIcon from "../../images/toilet.png";
 import DistanceIcon from "../../images/shoes.png";
+import profilePicture from "../../images/profileuser.png";
+import { Nav } from "../nav/nav-index";
 
 import "./listing.scss";
 
@@ -32,15 +37,15 @@ export class Listing extends React.Component {
       study: false,
       game: false,
       tv: false,
-      about: "",
-      note: "",
-      fees: "",
+      about: "Subletting bedroom #1 MyRez's 181 Lester standard suite",
+      note: "N/A",
+      fees: "N/A",
       price: "100",
-      bedroom: "",
-      bathroom: "",
-      roomdescr: "",
-      area: "",
-      distance: "",
+      bedroom: "1",
+      bathroom: "3",
+      roomdescr: "This is the largest bedroom in the suite!",
+      area: "1200",
+      distance: "0.3",
       member: true
     };
     this.toggleEditMode = this.toggleEditMode.bind(this);
@@ -101,37 +106,34 @@ export class Listing extends React.Component {
   render() {
     return (
       <div>
-        <Navbar></Navbar>
+        <Nav changeView={this.props.changeView} />
         {!this.state.editMode && (
           <div className="listing-pg container">
             <div className="row">
               <div className="col-lg-3">
                 <div className="row profile-listing">
-                  <object
+                  <img
+                    src={profilePicture}
                     className="profile-picture-listing"
-                    data={this.state.profilePicture}
-                    type="image/png"
-                  ></object>
+                  />
                   <div className="profile-userdetail">
                     <img src={DatePic} />
                     <div className="profile-userdetail-detail">
-                      {this.state.username}
+                      Summer 2020 (4-Month)
                     </div>
                   </div>
                   <div className="profile-userdetail">
                     <img src={AddressPic} />
                     <div className="profile-userdetail-detail">
-                      {this.state.location}
+                      181 Lester Street
                     </div>
                   </div>
                   <div className="profile-userdetail">
                     <img src={ClockPic} />
-                    <div className="profile-userdetail-detail">
-                      {this.state.school}
-                    </div>
+                    <div className="profile-userdetail-detail">Today</div>
                   </div>
                   <div className="price-listing">
-                    <div className="price-input">$ {this.state.price}</div>
+                    <div className="price-input">$ 750</div>
                     <div className="price-room">/ room</div>
                   </div>
 
@@ -161,23 +163,23 @@ export class Listing extends React.Component {
                 <div className="row">
                   <div className="col-lg-9">
                     <div className="main-img">
-                      <img className="img-fluid" src={Room}></img>
+                      <img src={Room2}></img>
                     </div>
                   </div>
                   <div className="col-lg-3">
                     <div className="row ">
                       <div className="other-img">
-                        <img className="img-fluid" src={Room}></img>
+                        <img src={Room3}></img>
                       </div>
                     </div>
                     <div className="row">
                       <div className="other-img">
-                        <img className="img-fluid" src={Room}></img>
+                        <img src={Room4}></img>
                       </div>
                     </div>
                     <div className="row">
                       <div className="other-img">
-                        <img className="img-fluid" src={Room}></img>
+                        <img src={Room3}></img>
                       </div>
                     </div>
                   </div>

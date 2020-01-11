@@ -19,25 +19,25 @@ export class Main extends React.Component {
       listings: [
         {
           listingId: "1",
-          position: { lat: 42.3875968, lng: -71.0994968 },
-          title: "181 Lester St. 5 rooms",
-          price: "$825",
+          position: { lat: 43.471287, lng: -80.532566 },
+          title: "181 Lester St, Waterloo",
+          price: "$750",
           members: ["j6chiang", "ahmad"],
           bathroomsShared: 2,
           bedroomsAvailable: 4
         },
         {
           listingId: "2",
-          position: { lat: 42.3974868, lng: -71.1124943 },
+          position: { lat: 43.441696, lng: -80.5546397 },
           title: "Icon",
-          price: "$750",
+          price: "$900",
           members: ["ahmad12", "jy"],
           bathroomsShared: 1,
           bedroomsAvailable: 2
         },
         {
           listingId: "3",
-          position: { lat: 42.4074868, lng: -71.1224943 },
+          position: { lat: 43.479196, lng: -80.5354097 },
           title: "CMH Double Rooms!!",
           price: "$600",
           members: ["erinCharky", "ahemad"],
@@ -95,7 +95,7 @@ export class Main extends React.Component {
             <div className="main-margins">
               <div className="row no-gutters main-searchresult">
                 <div className="col-lg-12">
-                  {"143 Results " + this.state.searchResult}
+                  {"3 Results " + this.state.searchResult}
                 </div>
               </div>
               <div className="row no-gutters main-filters">
@@ -199,6 +199,7 @@ export class Main extends React.Component {
                         bathroom={item.bathroomsShared}
                         bedroom={item.bedroomsAvailable}
                         price={item.price}
+                        changeView={this.props.changeView}
                       />
                     </li>
                   ))}

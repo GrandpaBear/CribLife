@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./listingitem.scss";
-import examplePic from "../../images/currentcribexample.png";
+import examplePic from "../../images/lester1.png";
 import InfoBedroom from "../../images/info-bedroom.png";
 import InfoBathroom from "../../images/info-bathroom.png";
 
@@ -12,7 +12,10 @@ export class ListingItem extends React.Component {
 
   render() {
     return (
-      <div className="main-item">
+      <div
+        className="main-item"
+        onClick={this.props.changeView.bind(this, "listing")}
+      >
         <div className="row no-gutters">
           <div className="col-lg-6 listingimage">
             <img src={examplePic} />

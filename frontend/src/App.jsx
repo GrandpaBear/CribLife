@@ -34,7 +34,7 @@ class App extends React.Component {
       };
       if (view == null) {
         this.setState({
-          view: "main"
+          view: "LandingPage"
         });
       } else {
         this.setState({

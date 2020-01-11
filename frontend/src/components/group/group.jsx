@@ -3,9 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Nav } from "../nav/nav-index.jsx";
 import { Carousel } from "react-bootstrap";
 import "./group.scss";
-import examplePic from "../../images/mylistingexample.png";
+import examplePic from "../../images/lester1.png";
 import { ListingGroup } from "./listinggroup.jsx";
-import Member from "../../images/profileuser.png";
+import Member from "../../images/profiledefault.png";
 
 export class Group extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ export class Group extends React.Component {
           position: { lat: 42.3875968, lng: -71.0994968 },
           title: "181 Lester St. 5 rooms",
           price: "$825",
-          members: ["j6chiang", "ahmad"],
+          members: ["ExampleUser1"],
           bathroomsShared: 2,
           bedroomsAvailable: 4
         },
@@ -26,7 +26,7 @@ export class Group extends React.Component {
           position: { lat: 42.3974868, lng: -71.1124943 },
           title: "Icon",
           price: "$750",
-          members: ["Ahmad", "JY", "Daniel", "Ayoub", "Hussein"],
+          members: ["ExampleUser2", "ExampleUser3", "ExampleUser4"],
           bathroomsShared: 1,
           bedroomsAvailable: 2
         },
@@ -35,7 +35,7 @@ export class Group extends React.Component {
           position: { lat: 42.4074868, lng: -71.1224943 },
           title: "CMH Double Rooms!!",
           price: "$600",
-          members: ["erinCharky", "ahemad"],
+          members: ["ExampleUser5", "ExampleUser6"],
           bathroomsShared: 3,
           bedroomsAvailable: 5
         }
@@ -48,7 +48,7 @@ export class Group extends React.Component {
       <div>
         <Nav changeView={this.props.changeView} />
         <div className="row no-gutters">
-          <div className="col-lg-4 group-title">My Listings</div>
+          <div className="col-lg-4 group-title">My Interested Listings</div>
           <div className="col-lg-8" />
         </div>
         <div className="row">
@@ -85,7 +85,7 @@ export class Group extends React.Component {
             </Carousel>
           </div>
         </div>
-        <div className="row no-gutters group-title">My Crib Postings</div>
+        <div className="row no-gutters group-title">My Postings</div>
         <div className="row">
           <div className="col-lg-12 group-carousel">
             <Carousel>
@@ -97,9 +97,7 @@ export class Group extends React.Component {
                         <img class="group-img-responsive" src={examplePic} />
                         <div class="group-img-overlay">
                           <div className="group-img-close" />
-                          <div className="group-img-btn">
-                            Awaiting Group Response
-                          </div>
+                          <div className="group-img-btn">Copy E-Mails</div>
                           {/* <div className="group-img-btn-disabled" /> */}
                         </div>
                       </div>

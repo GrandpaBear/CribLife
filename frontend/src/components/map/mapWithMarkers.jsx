@@ -10,7 +10,7 @@ import {
   Marker
 } from "react-google-maps";
 import { withRouter } from "react-router-dom";
-import examplePic from "../../images/currentcribexample.png";
+import examplePic from "../../images/lester1.png";
 
 const defaultMapOptions = {
   zoomControl: true,
@@ -41,7 +41,7 @@ const MapWithMarkers = compose(
   <GoogleMap
     options={defaultMapOptions}
     defaultZoom={13}
-    defaultCenter={{ lat: 42.397064, lng: -71.092577 }}
+    defaultCenter={{ lat: 43.471287, lng: -80.532566 }}
   >
     {props.listings.map(listing => {
       if (listing.listingId == props.selectedMarker.listingId) {
