@@ -1,5 +1,5 @@
 # CribLife
-Welcome to CribLife! A MERN-based web application that allows students to promote and sublet their place easily, as well as looking for the right home to sublet from with their friends. 
+Welcome to CribLife! A MERN-based web application that allows groups of students to promote and sublet their place together, as well as looking for the right home to sublet from.
 ![Alt Text](https://github.com/GrandpaBear/CribLife/blob/master/img/criblife.png)
 
 ## Overview
