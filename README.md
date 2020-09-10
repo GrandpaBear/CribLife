@@ -1,3 +1,8 @@
+Status - Still under development. To Dos:
+- Break up server.js into api, data (dao, model), and serializer folders for coding scalability 
+- Requires more REST APIs to be written to allow full usage.
+- Use JWT
+
 # CribLife
 Welcome to CribLife! A MERN-based web application that allows groups of students to promote and sublet their place together, as well as looking for the right home to sublet from.
 ![Alt Text](https://github.com/GrandpaBear/CribLife/blob/master/img/criblife.png)
