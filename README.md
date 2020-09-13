@@ -37,6 +37,3 @@ This student housing application is a better solution than the most common platf
 This program implements Google Maps API for a multitude of purposes (Interactive map w/ markers, Location Search Inputs, & Address to LatLng conversions)
 
 Programmed using MERN stack (MongoDB, Express.js, React.js, Node.js).
-
-Status:
-Still under development! Requires more REST APIs to be written to allow full usage.
